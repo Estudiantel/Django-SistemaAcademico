@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ carrera.nombre }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1 class="h3 mb-1">{{ carrera.nombre }}</h1>
+    <p class="text-muted mb-0">Plan de estudios · Duración: {{ carrera.duracion }} años</p>
+  </div>
+  <a class="btn btn-outline-secondary" href="{% url 'usuarios:carrera-public-list' %}">Volver a carreras</a>
+</div>
+
+<div class="row g-3">
+  {% for materia in materias %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h2 class="h5 card-title mb-2">{{ materia.nombre }}</h2>
+          <p class="card-text text-muted mb-0">Cupo máximo: {{ materia.cupo_maximo }} estudiantes</p>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <div class="col-12">
+      <div class="alert alert-info mb-0">Esta carrera todavía no tiene materias cargadas.</div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

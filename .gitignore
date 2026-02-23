@@ -1,0 +1,18 @@
+# Base de datos local
+db.sqlite3
+
+# Entorno virtual
+env/
+venv/
+ENV/
+
+# Archivos compilados de Python
+**/__pycache__/
+*.pyc
+
+# Configuraciones de VS Code
+.vscode/
+
+# Archivos temporales de Windows
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Panel de Control{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+  <h1 class="display-5 fw-bold text-primary">Panel de Control</h1>
+  <div class="alert alert-primary mb-0" role="alert">
+    Bienvenido, {{ nombre_completo }} ({{ rol_usuario }}).
+  </div>
+</div>
+
+{% if user.is_superuser or user.rol == 'ADMINISTRADOR' %}
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h2 class="h4 card-title">Personas</h2>
+          <p class="text-muted">Administrá los perfiles del sistema.</p>
+          <div class="d-grid gap-2">
+            <a class="btn btn-outline-primary" href="{% url 'usuarios:alumno-list' %}">Gestión de Alumnos</a>
+            <a class="btn btn-outline-primary" href="{% url 'usuarios:docente-list' %}">Gestión de Docentes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h2 class="h4 card-title">Académica</h2>
+          <p class="text-muted">Configurá carreras y materias.</p>
+          <div class="d-grid gap-2">
+            <a class="btn btn-outline-primary" href="{% url 'usuarios:carrera-list' %}">Carreras</a>
+            <a class="btn btn-outline-primary" href="{% url 'usuarios:materia-list' %}">Materias</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% elif user.rol == 'DOCENTE' %}
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body text-center">
+          <h2 class="h4 card-title">Mis Cátedras</h2>
+          <p class="text-muted">Administra tus materias y revisa tus alumnos</p>
+          <a class="btn btn-primary" href="{% url 'usuarios:mis-catedras-docente' %}">Ver mis materias</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% elif user.rol == 'ALUMNO' %}
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h2 class="h4 card-title">Estado Académico</h2>
+          <p class="text-muted">Consultá las materias en las que estás inscripto.</p>
+          <a class="btn btn-outline-primary" href="{% url 'usuarios:mis-materias' %}">Ver Mis Inscripciones</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h2 class="h4 card-title">Inscripciones</h2>
+          <p class="text-muted">Revisá la oferta académica disponible para tu carrera.</p>
+          <a class="btn btn-outline-primary" href="{% url 'usuarios:oferta-academica' %}">Oferta Académica</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}
