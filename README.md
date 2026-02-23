@@ -22,7 +22,7 @@ El sistema cuenta con 4 niveles de acceso:
 
 ### 1. Clonar el Repositorio
 ```bash
-git clone https: ARREGLAAAAAAAAAAAAAAAAAAAR
+git clone https: https://github.com/Estudiantel/Django-SistemaAcademico#
 cd DjangoSistemaAcademico
 ```
 
