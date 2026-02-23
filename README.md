@@ -82,4 +82,4 @@ Nota de seguridad: Al crear Alumnos o Docentes desde el panel de administración
 
 Enlace de los [Diagramas](https://drive.google.com/drive/folders/1IplQj3dJZHUAnR9sSKFHR-t3fTqbQ2-M?usp=sharing)
 
-Enlace del [Video]
+Enlace del [Video](https://drive.google.com/file/d/1UjAXroOE8uQgn1xkEGrP8zT_dQy4Lg-q/view?usp=sharing)
